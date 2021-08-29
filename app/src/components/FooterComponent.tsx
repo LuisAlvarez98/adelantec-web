@@ -31,7 +31,8 @@ const FooterComponent = () => {
             <Col xs={12} md={6} lg={4}>
               <FooterSubTitle>Adelantec</FooterSubTitle>
               <FooterContent>
-                Con nuestra plataforma es muy fácil encontrar lugar y acceder a los edificios del Tec.
+                Con nuestra plataforma es muy fácil encontrar lugar y acceder a
+                las instalaciones del Tec.
               </FooterContent>
             </Col>
             <Col xs={12} style={{ marginTop: "30px" }}>
@@ -42,7 +43,9 @@ const FooterComponent = () => {
                   justifyContent: "center",
                 }}
               >
-                <p style={{ color: "white" }}>&#169; Copyright 2021 - Adelantec</p>
+                <p style={{ color: "white" }}>
+                  &#169; Copyright 2021 - Adelantec
+                </p>
               </div>
             </Col>
           </Row>
