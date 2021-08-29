@@ -1,14 +1,27 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import IconButton from '@material-ui/core/IconButton';
+import InfoIcon from '@material-ui/icons/Info';
 import Logo from '../images/logo.png'
 import { useAreas } from "../hooks/useAreas"
 import { Area } from '../types';
 import styled from 'styled-components'
 import Cafe from '../images/cafe.jpeg'
+import { Button } from '@chakra-ui/react';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme  } from 'victory';
+
+
+const data = [
+  {quarter: 1, earnings: 45},
+  {quarter: 2, earnings: 32},
+  {quarter: 3, earnings: 27},
+  {quarter: 4, earnings: 36},
+  {quarter: 5, earnings: 49},
+];
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -50,6 +63,7 @@ export default function Home() {
   const { data: areas } = useAreas();
   return (
      <Container> 
+        <h1>AdelanTec</h1> 
         <img src={Logo} height="128" width="128"/>
     <div className={classes.root}>
       <ImageList rowHeight={180} className={classes.imageList}>
@@ -59,13 +73,42 @@ export default function Home() {
         <ImageListItem key={index}>
                     <Image src={Cafe}/>
                     <ImageListItemBar
-                    title={item.name + ' ' +  item.currentCapacity  + '/' + item.maxCapacity }
+                    title={`${item.name} ${item.currentCapacity}/${item.maxCapacity}`}
                     subtitle={<span> {item.description}</span>}
+                    actionIcon ={
+                      <IconButton aria-label={`info about ${item.name}`} className={classes.icon}>
+                      <InfoIcon />
+                    </IconButton>
+                    }
+                    
                     />
                 </ImageListItem>
+
         ))}
       </ImageList>
+
     </div>
+    {/* <VictoryChart
+        // adding the material theme provided with Victory
+        theme={VictoryTheme.material}
+        domainPadding={20}
+      >
+        <VictoryAxis
+          tickValues={[1, 2, 3, 4, 5]}
+          tickFormat={["Lunes ", "Martes ", "Miércoles ", "Jueves", "Viernes"]}
+        />
+        <VictoryAxis
+          dependentAxis
+          tickFormat={(x) => (`${x}`)}
+        />
+        <VictoryBar
+          data={data}
+          x="quarter"
+          y="earnings"
+        />
+      </VictoryChart> */}
+
     </Container>
+    
   );
 }

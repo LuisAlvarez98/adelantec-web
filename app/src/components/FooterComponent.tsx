@@ -31,8 +31,7 @@ const FooterComponent = () => {
             <Col xs={12} md={6} lg={4}>
               <FooterSubTitle>Adelantec</FooterSubTitle>
               <FooterContent>
-                Con nuestra plataforma es muy fácil encontrar personas que más
-                se adapaten a tu proyecto.
+                Con nuestra plataforma es muy fácil encontrar lugar y acceder a los edificios del Tec.
               </FooterContent>
             </Col>
             <Col xs={12} style={{ marginTop: "30px" }}>
